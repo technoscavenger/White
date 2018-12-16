@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
-using Castle.Core.Internal;
+using System.Linq;
 
 namespace TestStack.White.ScreenObjects
 {
@@ -17,7 +17,7 @@ namespace TestStack.White.ScreenObjects
         public static AppScreenException NonVirtualMethods(IEnumerable<MethodInfo> methodInfos)
         {
             var messageBuilder = new StringBuilder();
-            methodInfos.ForEach(delegate(MethodInfo entity)
+            methodInfos.ToList().ForEach(delegate(MethodInfo entity)
                                  {
                                      string message = string.Format("{0} method in class {1} is not virtual", entity.Name, entity.DeclaringType.Name);
                                      messageBuilder.AppendLine(message);
