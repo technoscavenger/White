@@ -39,8 +39,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.WebBrowser"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.WebBrowser.UITests", "TestStack.White.WebBrowser.UITests\TestStack.White.WebBrowser.UITests.csproj", "{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.WebBrowser.UnitTests", "TestStack.White.WebBrowser.UnitTests\TestStack.White.WebBrowser.UnitTests.csproj", "{1799B721-B2C1-41DE-9DD2-650A608A1D2B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.ScreenObjects", "TestStack.White.ScreenObjects\TestStack.White.ScreenObjects.csproj", "{FCD3E92F-FEE9-414D-A460-09F7F685B83E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.ScreenObjects.UITests", "TestStack.White.ScreenObjects.UITests\TestStack.White.ScreenObjects.UITests.csproj", "{168E237E-07C8-4379-8199-9FDEB6B7D402}"
@@ -91,10 +89,6 @@ Global
 		{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1799B721-B2C1-41DE-9DD2-650A608A1D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1799B721-B2C1-41DE-9DD2-650A608A1D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1799B721-B2C1-41DE-9DD2-650A608A1D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1799B721-B2C1-41DE-9DD2-650A608A1D2B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCD3E92F-FEE9-414D-A460-09F7F685B83E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FCD3E92F-FEE9-414D-A460-09F7F685B83E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCD3E92F-FEE9-414D-A460-09F7F685B83E}.Release|Any CPU.ActiveCfg = Release|Any CPU
