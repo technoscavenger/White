@@ -65,6 +65,10 @@
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.3.3.0\lib\net40-client\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.UIAutomationClient, Version=12.0.20617.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\UIAComWrapper.1.1.0.14\lib\net40\Interop.UIAutomationClient.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -74,11 +78,9 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="UIAutomationClient, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="UIAutomationTypes, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="UIAComWrapper, Version=1.1.0.14, Culture=neutral, PublicKeyToken=78cbcf77433a85e5, processorArchitecture=MSIL">
+      <HintPath>..\packages\UIAComWrapper.1.1.0.14\lib\net40\UIAComWrapper.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -95,7 +97,16 @@
     <Compile Include="Configuration\WhiteDefaultLogger.cs" />
     <Compile Include="Configuration\WhiteDefaultLoggerFactory.cs" />
     <Compile Include="Drawing\ScreenRectangle.cs" />
+    <Compile Include="InputDevices\IKeyboardWithActionListener.cs" />
+    <Compile Include="InputDevices\IMouseWithActionListener.cs" />
+    <Compile Include="InputDevices\KeyboardWin32.cs" />
+    <Compile Include="InputDevices\MouseWin32.cs" />
+    <Compile Include="InputDevices\Keyboard.cs" />
+    <Compile Include="InputDevices\Mouse.cs" />
+    <Compile Include="InputDevices\IKeyboard.cs" />
+    <Compile Include="InputDevices\IMouse.cs" />
     <Compile Include="InputDevices\Input64.cs" />
+    <Compile Include="InputDevices\Native.cs" />
     <Compile Include="InputDevices\MouseButton.cs" />
     <Compile Include="InputDevices\SystemMetric.cs" />
     <Compile Include="Interceptors\IWhiteInterceptor.cs" />
@@ -140,11 +151,7 @@
     <Compile Include="HorizontalSpan.cs" />
     <Compile Include="InputDevices\AttachedKeyboard.cs" />
     <Compile Include="InputDevices\AttachedMouse.cs" />
-    <Compile Include="InputDevices\IKeyboard.cs" />
-    <Compile Include="InputDevices\IMouse.cs" />
     <Compile Include="InputDevices\InputDeviceException.cs" />
-    <Compile Include="InputDevices\Keyboard.cs" />
-    <Compile Include="InputDevices\Mouse.cs" />
     <Compile Include="InputDevices\MouseCursor.cs" />
     <Compile Include="Interceptors\CoreInterceptContext.cs" />
     <Compile Include="Interceptors\ScrollInterceptor.cs" />
@@ -213,6 +220,9 @@
     <Compile Include="Utility\PropertyResolver.cs" />
     <Compile Include="Utility\Retry.cs" />
     <Compile Include="Utility\SystemLanguageRetreiver.cs" />
+    <Compile Include="WindowsAPI\ActivateOptions.cs" />
+    <Compile Include="WindowsAPI\ApplicationActivationManager.cs" />
+    <Compile Include="WindowsAPI\IApplicationActivationManager.cs" />
     <Compile Include="WindowsAPI\InputFactory.cs" />
     <Compile Include="WindowsAPI\ThirtyTwoBitInput.cs" />
     <Compile Include="WindowsAPI\WindowPlacement.cs" />

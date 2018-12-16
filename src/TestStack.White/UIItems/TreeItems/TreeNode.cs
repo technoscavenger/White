@@ -54,7 +54,7 @@ namespace TestStack.White.UIItems.TreeItems
         public virtual void Select()
         {
             actionListener.ActionPerforming(this);
-            mouse.Click(SelectPoint, actionListener);
+            mouse.LeftClick(SelectPoint, actionListener);
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace TestStack.White.UIItems.TreeItems
         /// </summary>
         public virtual bool UnSelect()
         {
-            var pattern = (SelectionItemPattern) Pattern(SelectionItemPattern.Pattern);
+            var pattern = GetPattern<SelectionItemPattern>();
             if (pattern != null)
             {
                 pattern.RemoveFromSelection();
@@ -120,7 +120,7 @@ namespace TestStack.White.UIItems.TreeItems
         public override void DoubleClick()
         {
             actionListener.ActionPerforming(this);
-            mouse.DoubleClick(SelectPoint, actionListener);
+            mouse.LeftDoubleClick(SelectPoint, actionListener);
         }
 
         public override void RightClick()

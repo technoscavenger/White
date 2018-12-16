@@ -31,9 +31,9 @@ namespace TestStack.White.UIItems
 
         protected readonly AutomationElement automationElement;
         protected IActionListener actionListener;
-        internal static readonly Mouse mouse = Mouse.Instance;
+        internal static readonly Mouse mouse = new Mouse();
         protected readonly PrimaryUIItemFactory factory;
-        internal readonly Keyboard keyboard = Keyboard.Instance;
+        internal readonly Keyboard keyboard = new Keyboard();
         protected IScrollBars scrollBars;
         private static readonly ScreenCapture ScreenCapture = new ScreenCapture();
         private AutomationEventHandler handler;
@@ -57,7 +57,7 @@ namespace TestStack.White.UIItems
 
         #endregion
 
-        #region Automation 
+        #region Automation
 
         /// <summary>
         /// Implements <see cref="IUIItem.AutomationElement"/>
@@ -172,6 +172,23 @@ namespace TestStack.White.UIItems
         /// Implements <see cref="IUIItem.HelpText"/>
         /// </summary>
         public virtual string HelpText { get { return automationElement.Current.HelpText; } }
+
+        /// <summary>
+        /// AccessibleDescription in Winforms no longer sets the HelpText, use this to get the AccessibleDescription
+        /// </summary>
+        public virtual string LegacyHelpText
+        {
+            get
+            {
+                var helpText = automationElement.Current.HelpText;
+                var legacyIAccessiblePattern = GetPattern<LegacyIAccessiblePattern>();
+                if (string.IsNullOrEmpty(helpText) && legacyIAccessiblePattern != null)
+                {
+                    helpText = legacyIAccessiblePattern.Current.Description;
+                }
+                return helpText;
+            }
+        }
 
         /// <summary>
         /// Implements <see cref="IUIItem.AccessKey"/>
@@ -317,7 +334,7 @@ namespace TestStack.White.UIItems
         /// </summary>
         public virtual void Invoke()
         {
-            var invokePattern = (InvokePattern)Pattern(InvokePattern.Pattern);
+            var invokePattern = GetPattern<InvokePattern>();
             if (invokePattern != null) invokePattern.Invoke();
         }
 
@@ -336,7 +353,7 @@ namespace TestStack.White.UIItems
         public virtual void DoubleClick()
         {
             actionListener.ActionPerforming(this);
-            PerformIfValid(() => mouse.DoubleClick(Bounds.Center(), actionListener));
+            PerformIfValid(() => mouse.LeftDoubleClick(Bounds.Center(), actionListener));
         }
 
         /// <summary>
@@ -377,7 +394,7 @@ namespace TestStack.White.UIItems
         /// </summary>
         public virtual void Enter(string value)
         {
-            var pattern = Pattern(ValuePattern.Pattern) as ValuePattern;
+            var pattern = GetPattern<ValuePattern>();
             if (pattern != null) pattern.SetValue(string.Empty);
             if (string.IsNullOrEmpty(value)) return;
 
@@ -479,7 +496,7 @@ namespace TestStack.White.UIItems
         {
             return automationElement.GetHashCode();
         }
-        
+
         /// <summary>
         /// Implements <see cref="IUIItem.ToString()"/>
         /// </summary>
@@ -506,7 +523,7 @@ namespace TestStack.White.UIItems
         {
             actionListener.ActionPerformed(action);
         }
-        
+
         #endregion
 
         #region Public
@@ -517,6 +534,18 @@ namespace TestStack.White.UIItems
         /// <returns>Returns an <c><see cref="IUIItemContainer"/></c> if possibe</returns>
         public virtual IUIItemContainer AsContainer()
         {
+            return AsContainerInternal();
+        }
+
+        #endregion
+
+        #region Internal
+
+        internal virtual IUIItemContainer AsContainerInternal()
+        {
+            // This function needs to be internal because all public method from this
+            // class call interceptors. Sometimes we don't need focus on element, for
+            // example in GetMultiple method, so this method created for internal usage.
             if (Framework != WindowsFramework.Wpf)
             {
                 Logger.Warn("Only WPF items should be treated as container items");
@@ -526,9 +555,9 @@ namespace TestStack.White.UIItems
             }
             return new UIItemContainer(AutomationElement, ActionListener);
         }
-        
+
         #endregion
-        
+
         #region Protected
 
         protected virtual void ActionPerformed()
@@ -564,39 +593,13 @@ namespace TestStack.White.UIItems
             return automationElement.GetCurrentPropertyValue(automationProperty);
         }
 
-        protected virtual T Pattern<T>()
-        {
-            var fieldInfo = typeof(T).GetField("Pattern", BindingFlags.Static | BindingFlags.Public);
-            var pattern = (AutomationPattern)fieldInfo.GetValue(null);
-            object patternObject;
-            if (automationElement.TryGetCurrentPattern(pattern, out patternObject))
-            {
-                return (T)patternObject;
-            }
-            return (T)(object)null;
-        }
-
-        protected virtual BasePattern Pattern(AutomationPattern pattern)
-        {
-            return Pattern(AutomationElement, pattern);
-        }
-
         #endregion
 
-        #region Internal
-
-        internal static BasePattern Pattern(AutomationElement automationElement, AutomationPattern pattern)
+        public virtual T GetPattern<T>() where T : BasePattern
         {
-            object patternObject;
-            if (automationElement.TryGetCurrentPattern(pattern, out patternObject))
-            {
-                return (BasePattern)patternObject;
-            }
-            return null;
+            return AutomationElement.GetPattern<T>();
         }
 
-        #endregion
-        
         #region Private
 
         private void PerformIfValid(System.Action action)
@@ -630,7 +633,7 @@ namespace TestStack.White.UIItems
             {
                 throw new WhiteException(string.Format("Failed to click on {0}, bounds empty", ToString()));
             }
-            mouse.Click(bounds.Center(), actionListener);
+            mouse.LeftClick(bounds.Center(), actionListener);
         }
 
         #endregion

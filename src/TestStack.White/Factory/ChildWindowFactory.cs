@@ -25,6 +25,7 @@ namespace TestStack.White.Factory
         public virtual Window ModalWindow(string title, InitializeOption option, WindowSession windowSession)
         {
             var message = "Could not find modal window with title: " + title;
+            title = title.Replace("&", string.Empty); // Seems v3 just strips the amperstand out
             var modalWindowElement = WaitTillFound(() => Finder.FindWindow(title, 0), message);
             return Create(modalWindowElement, option, windowSession);
         }
@@ -45,7 +46,7 @@ namespace TestStack.White.Factory
         }
 
         /// <exception cref="UIItemSearchException">The application type is not supported by White</exception>
-        internal static Window Create(AutomationElement element, InitializeOption option, WindowSession windowSession)
+        public static Window Create(AutomationElement element, InitializeOption option, WindowSession windowSession)
         {
             ISpecializedWindowFactory specializedWindowFactory = SpecializedWindowFactories.Find(factory => factory.DoesSpecializeInThis(element));
             if (specializedWindowFactory != null)

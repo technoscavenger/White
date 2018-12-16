@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System;
 using System.Text;
 using TestStack.White.InputDevices;
@@ -27,7 +27,7 @@ namespace TestStack.White.UITests.InputDevices
         {
             SelectInputControls();
             var textBox = MainWindow.Get<TextBox>("TextBox");
-            const string text = "ãàâäáãàâäáãàâäáãàâäáãàâäáãàâäáãàâäáãàâäá";
+            const string text = "ã�?âäáã�?âäáã�?âäáã�?âäáã�?âäáã�?âäáã�?âäáã�?âäá";
 
             textBox.BulkText = text;
 
@@ -39,7 +39,7 @@ namespace TestStack.White.UITests.InputDevices
         {
             SelectInputControls();
             var textBox = MainWindow.Get<TextBox>("TextBox");
-            const string text = "ŕ&aacute;&acirc;ă&auml;ĺć&ccedil;č&eacute;ę&euml;ě&iacute;&icirc;ď";
+            const string text = "�?&aacute;&acirc;�?&auml;ĺ�?&ccedil;�?&eacute;�?&euml;�?&iacute;&icirc;�?";
 
             textBox.BulkText = text;
 
@@ -81,7 +81,7 @@ namespace TestStack.White.UITests.InputDevices
         [Test]
         public void DoNotAllowToLeaveKeyWhichIsNotHeldTest()
         {
-            Assert.That(() => { Keyboard.Instance.LeaveKey(KeyboardInput.SpecialKeys.LEFT, MainWindow); }, Throws.TypeOf<InputDeviceException>());
+            Assert.That(() => Keyboard.LeaveKey(KeyboardInput.SpecialKeys.LEFT, MainWindow), Throws.TypeOf<InputDeviceException>());
         }
 
         [Test]
