@@ -107,3 +107,8 @@ packages
 build
 
 Thumbs.db
+*.lock
+src/.vs/TestStack.White/v15/Server/sqlite3/storage.ide
+src/.vs/TestStack.White/v15/Server/sqlite3/storage.ide-shm
+src/.vs/TestStack.White/v15/Server/sqlite3/storage.ide-wal
+src/UpgradeLog.htm
