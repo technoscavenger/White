@@ -1,6 +1,6 @@
-White
+WhiteX
 -----
-White is a framework for automating rich client applications based on Win32, WinForms, WPF, Silverlight and SWT (Java) platforms. 
+WhiteX is a framework for automating rich client applications based on Win32, WinForms, WPF, Silverlight and SWT (Java) platforms. 
 It is .NET based and does not require the use of any proprietary scripting languages. 
 
 Tests/automation programs using White can be written with whatever .NET language, IDE and tools you are already using. 
@@ -17,10 +17,10 @@ Documentation:
 http://teststack.azurewebsites.net/white/index.html
 
 Github site: 
-https://github.com/TestStack/White
+https://github.com/technoscavenger/WhiteX
 
 Report Issues at:
-https://github.com/TestStack/White/issues
+https://github.com/technoscavenger/WhiteX/issues
 
 Discussion Group:
 https://groups.google.com/forum/#!forum/teststack_white
