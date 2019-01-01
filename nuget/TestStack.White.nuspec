@@ -12,7 +12,7 @@ UIAv3 works better with WPF and newer technologies and supports new UIA Patterns
 * TestStack.White is the official replacement for White *</description>
     <authors>Vivek Singh, Jake Ginnivan, Techno Scavenger</authors>
     <owners>Techno Scavenger</owners>
-    <licenseUrl>https://github.com/technoscavenger/WhiteX/blob/master/LICENSE.txt</licenseUrl>
+	<license type="expression">MIT</license>
     <iconUrl>https://raw.github.com/technoscavenger/WhiteX/master/logo.png</iconUrl>
     <projectUrl>https://github.com/technoscavenger/WhiteX</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
