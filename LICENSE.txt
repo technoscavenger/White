@@ -1,4 +1,4 @@
-TestStack.White is dual licensed to stay compatible with Whites Original Apache 2 license.
+TestStack.WhiteX is dual licensed to stay compatible with Whites Original Apache 2 license.
  
 You can choose either MIT or Apache 2.
  
