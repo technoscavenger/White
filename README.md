@@ -15,10 +15,6 @@ TestStack has brought this project into it's offering to try and breathe some li
 [![Test status](http://flauschig.ch/batch.php?type=tests&account=RomanBaeriswyl&slug=white-9yaco&branch=master)](https://ci.appveyor.com/project/RomanBaeriswyl/white-9yaco/branch/master)
 [![Documentation Status](https://readthedocs.org/projects/teststackwhite/badge/?version=latest)](http://teststackwhite.readthedocs.org/en/latest/?badge=latest)
 
-#### UIAComWrapper Branch
-[![Build status](https://ci.appveyor.com/api/projects/status/3nq9oblpevt0uu0l/branch/UIAComWrapper?svg=true)](https://ci.appveyor.com/project/RomanBaeriswyl/white-9yaco/branch/UIAComWrapper)
-[![Test status](http://flauschig.ch/batch.php?type=tests&account=RomanBaeriswyl&slug=white-9yaco&branch=UIAComWrapper)](https://ci.appveyor.com/project/RomanBaeriswyl/white-9yaco/branch/UIAComWrapper)
-
 ## Contributing
 White needs contributors to keep improving. There is plenty to do:
 
