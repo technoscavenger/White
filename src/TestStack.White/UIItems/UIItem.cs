@@ -281,7 +281,7 @@ namespace TestStack.White.UIItems
             if (rectangle != Rect.Empty)
             {
                 new Drawing.FrameRectangle(color, rectangle).Highlight();
-                System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(CoreAppXmlConfiguration.Instance.HighlightTimeout);
             }
         }
 

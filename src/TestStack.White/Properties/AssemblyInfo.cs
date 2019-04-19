@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("White.Core")]
-[assembly: AssemblyCopyright("Copyright © TestStack 2012")]
+[assembly: AssemblyCopyright("Copyright © TestStack 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

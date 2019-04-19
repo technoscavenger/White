@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>TestStack.WhiteX</id>
-    <version>0.13.3</version>
+    <version>0.13.5</version>
     <title>TestStack.WhiteX</title>
     <summary>TestStack.White is the official replacement for the White UI automation framework. Uia3 flavor works with UIAv3</summary>
     <description>White is a framework for automating rich client applications based on Win32, WinForms, WPF, Silverlight and SWT (Java) platforms. It is .NET based and does not require the use of any proprietary scripting languages. Tests/automation programs using White can be written with whatever .NET language, IDE and tools you are already using. White provides a consistent object-oriented API, hiding the complexity of Microsoft's UIAutomation library (on which White is based) and windows messages.
@@ -16,11 +16,11 @@ UIAv3 works better with WPF and newer technologies and supports new UIA Patterns
     <iconUrl>https://raw.github.com/technoscavenger/WhiteX/master/logo.png</iconUrl>
     <projectUrl>https://github.com/technoscavenger/WhiteX</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <copyright>Copyright Techno Scavenger 2018</copyright>
+    <copyright>Copyright Techno Scavenger 2019</copyright>
     <tags>White UIAutomation Testing UIA WPF Silverlight Win32 Automation UIAv3</tags>
     <dependencies>
       <dependency id="Castle.Core" version="4.3.1" />
-      <dependency id="UIAComWrapperX" version="1.1.0.14" />
+      <dependency id="UIAComWrapperX" version="1.1.0.16" />
     </dependencies>
   </metadata>
   <files>
