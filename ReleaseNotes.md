@@ -1,14 +1,8 @@
-# 0.14.0 (TBD)
-
-General changes:
-
- - New NuGet package TestStack.White.Uia3 was added for UIAComWrapper branch
- - All relevant fixes and changes are being merged from master branch
- - Pre-release packages are being pushed to NuGet.org more frequently
- - Source indexing is now properly applied to pdb files with GitLink, so White debugging was made much easier
-
+# 0.13.5 (22 April 2019)
+ - DrawHighlight delay so that it can be seen visually
+ - Popup menu File | Exit for Notepad not working on Windows 10 LSTC, fixed.
+ 
 # 0.13.0 (7 June 2014)
-
  - [#188](https://github.com/TestStack/White/pull/188) - Issue144: Add DrawHighlight method to UIItem contributed by Ilya Murzinov ([ilya-murzinov](https://github.com/ilya-murzinov))
  - [#242](https://github.com/TestStack/White/pull/242) - White unable to extract DataItems (ListViewRow) contributed by Ilya Murzinov ([ilya-murzinov](https://github.com/ilya-murzinov))
  - [#238](https://github.com/TestStack/White/pull/238) - added nuget logo and updated nuspecs to point to it contributed by Jason Roberts ([jason-roberts](https://github.com/jason-roberts))
