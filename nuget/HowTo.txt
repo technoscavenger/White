@@ -1,2 +1,5 @@
 Requirements
-* 
+* Get https://www.nuget.org/downloads
+* Make nuget.exe available in the search path
+* Change to <WhiteX>/nuget
+* Run "nuget pack TestStack.White.nuspec"
