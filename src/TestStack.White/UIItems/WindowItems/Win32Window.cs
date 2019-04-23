@@ -25,7 +25,19 @@ namespace TestStack.White.UIItems.WindowItems
 
         public override PopUpMenu Popup
         {
-            get { return windowFactory.PopUp(this); }
+            get {
+                PopUpMenu ret = null;
+                if (this.PopupMenuParentIsDesktop)
+                {
+                    ret =  windowFactory.PopUp(this);
+                } else
+                {
+                    var popup_menu = this.Get(SearchCriteria.ByControlType(ControlType.Menu));
+                    if (popup_menu == null) throw new WhiteAssertionException("Popup menu cannot be found");
+                    ret = new PopUpMenu(popup_menu.AutomationElement, actionListener);
+                }
+                return ret;
+            }
         }
 
         public override Window ModalWindow(string title, InitializeOption option)

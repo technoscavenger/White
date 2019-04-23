@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Automation;
+using TestStack.White.Configuration;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.Custom;
 using TestStack.White.UIItems.ListBoxItems;
@@ -43,6 +44,7 @@ namespace TestStack.White.Mappings
             items.AddPrimary(typeof(ToolStrip), ControlType.ToolBar);
 
             items.AddWin32Primary(typeof(MenuBar), ControlType.MenuBar);
+            items.AddWin32Primary(typeof(Menu), ControlType.Menu);
             items.AddWinFormPrimary(typeof(MenuBar), ControlType.MenuBar);
             items.AddWPFPrimary(typeof(MenuBar), ControlType.Menu);
             items.AddSilverlightPrimary(typeof(MenuBar), ControlType.Menu);
@@ -224,7 +226,14 @@ namespace TestStack.White.Mappings
 
         public virtual Type GetTestControlType(AutomationElement automationElement)
         {
-            TreeWalker tWalker = TreeWalker.ControlViewWalker;
+            TreeWalker tWalker = null;
+            if (CoreAppXmlConfiguration.Instance.RawElementBasedSearch)
+            {
+                tWalker = TreeWalker.RawViewWalker;
+            } else
+            {
+                tWalker = TreeWalker.ControlViewWalker;
+            }
             AutomationElement.AutomationElementInformation current = automationElement.Current;
             AutomationElement parent = tWalker.GetParent(automationElement);
             String frameId = current.FrameworkId;

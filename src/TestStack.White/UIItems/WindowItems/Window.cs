@@ -476,5 +476,9 @@ UI actions on window needing mouse would not work in area not falling under the 
                         element.Current.HasKeyboardFocus && !element.Current.ControlType.Equals(ControlType.Custom));
             }
         }
+        /// <summary>
+        /// Popup Menu will be search as child of Root(Desktop window) if true
+        /// </summary>
+        public bool PopupMenuParentIsDesktop { get; set; } = true;
     }
 }

@@ -36,28 +36,5 @@ namespace TestStack.White.UnitTests
             Assert.That(verticalSpan.DoesntContain(Rect.Empty), Is.True);
         }
 
-        [Test]
-        public void HelloTest()
-        {
-            CoreAppXmlConfiguration.Instance.LoggerFactory = new ConsoleFactory(LoggerLevel.Debug);
-            CoreAppXmlConfiguration.Instance.RawElementBasedSearch = true;
-            var applicationName = "notepad.exe";
-            Application application = Application.Launch(applicationName);
-            var window = application.GetWindow("Untitled - Notepad", InitializeOption.NoCache);
-            var menubar = window.MenuBars[1];
-            var file = menubar.MenuItem("File");
-            file.Click();
-            file.DrawHighlight();
-            var x = window.Get(SearchCriteria.ByControlType(ControlType.Menu));
-            //var x = window.Get(SearchCriteria.ByText("File"));
-            //Console.WriteLine("======================");
-            //Console.WriteLine(x.Name);
-            //Console.WriteLine(x.AutomationElement.Current.ClassName);
-            //var x = window.Popup;
-            //x.DrawHighlight();
-            //var file_popup = window.Get<PopUpMenu>(SearchCriteria.ByText("File"));
-            //file_popup.DrawHighlight();
-
-        }
     }
 }

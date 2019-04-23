@@ -1,7 +1,9 @@
-﻿using NUnit.Framework;
+﻿using Castle.Core.Logging;
+using NUnit.Framework;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Automation;
+using TestStack.White.Configuration;
 using TestStack.White.Factory;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
@@ -34,6 +36,41 @@ namespace TestStack.White.UITests.Scenarios
                     Assert.That(modalWindow, Is.Not.Null);
                 }
             }
+        }
+
+        [Test]
+        public void NotepadTests_FileExit()
+        {
+            CoreAppXmlConfiguration.Instance.LoggerFactory = new ConsoleFactory(LoggerLevel.Debug);
+            CoreAppXmlConfiguration.Instance.RawElementBasedSearch = true;
+            var applicationName = "notepad.exe";
+            Application application = Application.Launch(applicationName);
+            var window = application.GetWindow("Untitled - Notepad", InitializeOption.NoCache);
+            var menubar = window.MenuBars[1];
+            var file = menubar.MenuItem("File");
+            file.Click();
+            window.PopupMenuParentIsDesktop = false;
+            var x = window.Popup;
+            var exit = x.Item("Exit");
+            exit.Click();
+        }
+
+        [Test]
+        public void NotepadTests_DrawHighlight()
+        {
+            CoreAppXmlConfiguration.Instance.LoggerFactory = new ConsoleFactory(LoggerLevel.Debug);
+            CoreAppXmlConfiguration.Instance.RawElementBasedSearch = true;
+            var applicationName = "notepad.exe";
+            Application application = Application.Launch(applicationName);
+            var window = application.GetWindow("Untitled - Notepad", InitializeOption.NoCache);
+            var menubar = window.MenuBars[1];
+            var file = menubar.MenuItem("File");
+            file.Click();
+            window.PopupMenuParentIsDesktop = false;
+            var x = window.Popup;
+            x.DrawHighlight();
+            var exit = x.Item("Exit");
+            exit.Click();
         }
 
         [Test]
