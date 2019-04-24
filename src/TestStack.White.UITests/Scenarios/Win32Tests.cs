@@ -95,6 +95,7 @@ namespace TestStack.White.UITests.Scenarios
             var combo_script = font_dialog.Get<ComboBox>(SearchCriteria.ByText("Script:"));
             combo_script.Select("Greek");
             combo_script.DrawHighlight();
+            combo_script.Select(0);
 
 
             var cancel = font_dialog.Get<Button>(SearchCriteria.ByText("Cancel"));
