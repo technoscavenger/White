@@ -74,6 +74,41 @@ namespace TestStack.White.UITests.Scenarios
         }
 
         [Test]
+        public void NotepadTests_ComboBox()
+        {
+            CoreAppXmlConfiguration.Instance.LoggerFactory = new ConsoleFactory(LoggerLevel.Debug);
+            CoreAppXmlConfiguration.Instance.RawElementBasedSearch = true;
+            var applicationName = "notepad.exe";
+            Application application = Application.Launch(applicationName);
+            var main_window = application.GetWindow("Untitled - Notepad", InitializeOption.NoCache);
+            var menubar = main_window.MenuBars[1];
+            var format = menubar.MenuItem("Format");
+            format.Click();
+            main_window.PopupMenuParentIsDesktop = false;
+            var popup = main_window.Popup;
+            var font = popup.Item("Font...");
+            font.Click();
+            var font_dialog = main_window.ModalWindow("Font");
+            var combo_size = font_dialog.Get<ComboBox>(SearchCriteria.ByText("Size:"));
+            combo_size.Select("72");
+        
+            var combo_script = font_dialog.Get<ComboBox>(SearchCriteria.ByText("Script:"));
+            combo_script.Select("Greek");
+            combo_script.DrawHighlight();
+
+
+            var cancel = font_dialog.Get<Button>(SearchCriteria.ByText("Cancel"));
+            cancel.Click();
+
+            var file = menubar.MenuItem("File");
+            file.Click();
+            popup = main_window.Popup;
+            var exit = popup.Item("Exit");
+            exit.Click();
+        }
+
+
+        [Test]
         [Category("NeedsFix")]
         [Ignore("NeedsFix")]
         public void LegacyIAccessibleTest()

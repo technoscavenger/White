@@ -80,8 +80,11 @@ namespace TestStack.White.UIItems.ListBoxItems
 
         public override void ActionPerforming(UIItem uiItem)
         {
-            var screenItem = new ScreenItem(uiItem, ScrollBars);
-            screenItem.MakeVisible(this);
+            if (uiItem.AutomationElement.Current.IsOffscreen)
+            {
+                var screenItem = new ScreenItem(uiItem, ScrollBars);
+                screenItem.MakeVisible(this);
+            }
         }
 
         public virtual VerticalSpan VerticalSpan

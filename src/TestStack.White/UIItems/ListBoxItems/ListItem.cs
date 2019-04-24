@@ -37,7 +37,7 @@ namespace TestStack.White.UIItems.ListBoxItems
 
             actionListener.ActionPerforming(this);
 
-            if (Bounds.IsEmpty)
+            if (0 == Bounds.Width && 0 == Bounds.Height)
             {
                 Logger.Debug("Bounds empty, falling back to automation patterns");
                 GetPattern<SelectionItemPattern>().Select();
