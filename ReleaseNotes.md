@@ -1,3 +1,6 @@
+# 0.13.6 (future)
+ - Fix combo box selection for win32 framework
+
 # 0.13.5 (22 April 2019)
  - DrawHighlight delay so that it can be seen visually
  - Popup menu File | Exit for Notepad not working on Windows 10 LSTC, fixed.
