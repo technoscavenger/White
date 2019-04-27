@@ -1,4 +1,4 @@
-# 0.13.6 (future)
+# 0.13.6 (26 April 2019)
  - Fix combo box selection for win32 framework
 
 # 0.13.5 (22 April 2019)
